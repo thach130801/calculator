@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Welcome to Calculator!</h1>
+    <!-- Create a basic HTML calculator with buttons for each digit, each of the above functions and an “Equals” key.
+    There should also be a display for the calculator. Go ahead and fill it with some dummy numbers so it looks correct.
+    Add a “clear” button. -->
+    <!-- Add displays -->
+    <div id="past-display"> </div>
+    <div id="current-display">0</div>
+    <div id='calculator'></div>
+    <!-- Add buttons of all kinds -->
+    <script>
+        let calculatorUI = document.getElementById('calculator');
+        for (let i = 0; i <= 9; i++) {
+            let button = document.createElement('button');
+            button.textContent = i;
+            button.className='digit-button';
+            calculatorUI.appendChild(button);
+        }
+        let operations = ['+', '-', 'x', '/'];
+        let buttons = operations.map((operator) => {
+            let button = document.createElement('button');
+            button.textContent = operator;
+            button.className = 'operator-button'
+            return button;
+        })
+        calculatorUI.append(...buttons);
+        const equalsButton = document.createElement('button');
+        equalsButton.textContent = '=';
+        equalsButton.id = 'equals';
+        const clearButton = document.createElement('button');
+        clearButton.textContent = 'C';
+        clearButton.id = 'clear';
+        calculatorUI.appendChild(equalsButton);
+        calculatorUI.appendChild(clearButton);
+    </script>
+    <script src="javascript.js"></script>
+</body>
+</html>
