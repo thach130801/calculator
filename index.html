@@ -6,9 +6,6 @@
 </head>
 <body>
     <h1>Welcome to Calculator!</h1>
-    <!-- Create a basic HTML calculator with buttons for each digit, each of the above functions and an “Equals” key.
-    There should also be a display for the calculator. Go ahead and fill it with some dummy numbers so it looks correct.
-    Add a “clear” button. -->
     <!-- Add displays -->
     <div id="past-display"> </div>
     <div id="current-display">0</div>
@@ -22,7 +19,7 @@
             button.className='digit-button';
             calculatorUI.appendChild(button);
         }
-        let operations = ['+', '-', 'x', '/'];
+        let operations = ['+', '-', '*', '/'];
         let buttons = operations.map((operator) => {
             let button = document.createElement('button');
             button.textContent = operator;
@@ -30,6 +27,7 @@
             return button;
         })
         calculatorUI.append(...buttons);
+
         const equalsButton = document.createElement('button');
         equalsButton.textContent = '=';
         equalsButton.id = 'equals';
@@ -38,6 +36,19 @@
         clearButton.id = 'clear';
         calculatorUI.appendChild(equalsButton);
         calculatorUI.appendChild(clearButton);
+
+        const backspaceButton = document.createElement('button');
+        backspaceButton.textContent = 'back';
+        backspaceButton.id = 'back';
+        const dotButton = document.createElement('button');
+        dotButton.textContent = '.';
+        dotButton.id = 'dot';
+        const negateButton = document.createElement('button');
+        negateButton.textContent = '+/-';
+        negateButton.id = 'neg';
+        calculatorUI.appendChild(backspaceButton);
+        calculatorUI.appendChild(dotButton);
+        calculatorUI.appendChild(negateButton);
     </script>
     <script src="javascript.js"></script>
 </body>
