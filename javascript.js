@@ -39,7 +39,7 @@ function inputDigit(digit) {
 /// Add equals, clear function
 document.getElementById('clear').addEventListener('click', () => CLEAR());
 function CLEAR() {
-    num1 = undefined; num2 = undefined;
+    num1 = undefined; num2 = undefined; operator = undefined;
     displayValue = '0';
     updateDisplay();
     clearPastDisplay();
@@ -47,8 +47,13 @@ function CLEAR() {
 
 document.getElementById('equals').addEventListener('click', () => EQUALS());
 function EQUALS() {
+    if (operator === undefined) {
+        document.getElementById('past-display').textContent = `${displayValue} = `;
+    } else {   
     num2 = +displayValue;
-    evaluation(); 
+    evaluation();
+    operator = undefined;
+    }
 }
 
 /// Add operation
@@ -76,8 +81,7 @@ function clearPastDisplay() {
 function evaluation() {
     displayValue = operate(operator, num1, num2);
     // case divide by 0
-    if (typeof displayValue === 'number' && !Number.isInteger(displayValue))
-        {
+    if (typeof displayValue === 'number' && !Number.isInteger(displayValue)) {
             displayValue = Math.round(displayValue*1000)/1000;
         }
     updateDisplay();
@@ -104,7 +108,7 @@ function DOT() {
     updateDisplay();
 }
 function NEG() {
-    displayValue += -1;
+    displayValue *= -1;
     updateDisplay();
 }
 
