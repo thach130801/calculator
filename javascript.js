@@ -60,7 +60,7 @@ function EQUALS() {
 document.querySelectorAll('.operator-button').forEach((button) => {
     button.addEventListener('click', () => {
         // handle that case
-        if (num1 !== undefined && displayValue !== '0') {
+        if (num1 !== undefined && displayValue !== '0' && operator !== undefined) {
             num2 = +displayValue;
             evaluation();
         }
@@ -135,7 +135,7 @@ function handleKeyPress(event) {
         inputDigit(keyPressed);
     }
     else if (operatorKeys.includes(keyPressed)) {
-        if (num1 !== undefined && displayValue !== '0') {
+        if (num1 !== undefined && displayValue !== '0' && operator !== undefined) {
             num2 = +displayValue;
             evaluation();
         }

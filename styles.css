@@ -1,0 +1,153 @@
+/* 1. Styling the Calculator Container:
+Set a background color, padding, and border for the #calculator container.
+Center-align the calculator on the page.
+*/ 
+body {
+    background-color: lightgray; /* Light gray background */
+    /* Add other styling properties as needed */
+}
+
+#calculator {
+    background-color: dimgray;
+    padding: 10px;
+    border: 1px white;
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+/* 2. Button Styling:
+Style the digit buttons (class="digit-button") and operator buttons (class="operator-button").
+Add some padding, adjust the font size, and set a background color.
+Consider adding hover effects (e.g., changing the background color on hover).
+*/
+/* Digit buttons */
+.digit-button {
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.digit-button:hover {
+    background-color: #ddd;
+}
+
+/* Operator buttons */
+.operator-button {
+    background-color: #ffcc00;
+    color: #333;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.operator-button:hover {
+    background-color: #ffdd66;
+}
+
+/* Equals button (standout) */
+#equals {
+    background-color: #ff0000; /* Red background for standout effect */
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#equals:hover {
+    background-color: #ff3333; /* Lighter red on hover */
+}
+
+/* Clear button (standout) */
+#clear {
+    background-color: #00ccff; /* Yellow background for standout effect */
+    color: #333;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#clear:hover {
+    background-color: #33aaff; /* Lighter yellow on hover */
+}
+
+/* Back button (standout) */
+#back {
+    background-color: #00ccff; /* Yellow background for standout effect */
+    color: #333;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#back:hover {
+    background-color: #33aaff; /* Darker blue on hover */
+}
+
+/* Other buttons (dot, negate) */
+#dot, #neg {
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#dot:hover, #neg:hover {
+    background-color: #ddd;
+}
+
+/* 3. Display Styling:
+Style the display area (id="current-display" and id="past-display").
+Set a background color, font size, and text alignment.
+Make sure the text is centered vertically. */
+/* Display Styling */
+#current-display, #past-display {
+    background-color: black;
+    padding: 10px;
+    border: 1px solid white; /* Add a solid white border for contrast */
+    margin: 0 auto; /* Center horizontally */
+    max-width: 300px; /* Set a maximum width to prevent it from stretching too wide */
+    color: white; /* Text color */
+    text-align: right; /* Right-align the text */
+    line-height: 2; /* Vertically center the text */
+    font-size: 1.5rem; /* Increase font size */
+    font-weight: bold; /* Use bold typeface */
+}
+
+#past-display {
+    background-color: gray; /* Gray background for the past display */
+}
+
+/*
+Button Layout:
+Arrange the buttons in a grid layout (similar to a calculator).
+Use CSS Grid or Flexbox to achieve this. */
+#calculator {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    width: 75px;
+}
+
+#equals {
+    width: 150px;
+}

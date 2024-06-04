@@ -9,24 +9,31 @@
     <!-- Add displays -->
     <div id="past-display"> </div>
     <div id="current-display">0</div>
-    <div id='calculator'></div>
+    <div id="calculator">
+        <div class="row" id="row1"></div>   
+        <div class="row" id="row2"></div>
+        <div class="row" id="row3"></div>
+        <div class="row" id="row4"></div>
+        <div class="row" id="row5"></div>
     <!-- Add buttons of all kinds -->
     <script>
         let calculatorUI = document.getElementById('calculator');
-        for (let i = 0; i <= 9; i++) {
+
+        let numbers = ['0', '1', '2', '3', '4', '5', '6',' 7', '8', '9']
+        let numberButtons = numbers.map((number) => {
             let button = document.createElement('button');
-            button.textContent = i;
+            button.textContent = number;
             button.className='digit-button';
-            calculatorUI.appendChild(button);
-        }
+            return button;
+        })
         let operations = ['+', '-', '*', '/'];
-        let buttons = operations.map((operator) => {
+        let operationButtons = operations.map((operator) => {
             let button = document.createElement('button');
             button.textContent = operator;
             button.className = 'operator-button'
+            button.id = operator;
             return button;
         })
-        calculatorUI.append(...buttons);
 
         const equalsButton = document.createElement('button');
         equalsButton.textContent = '=';
@@ -34,8 +41,6 @@
         const clearButton = document.createElement('button');
         clearButton.textContent = 'C';
         clearButton.id = 'clear';
-        calculatorUI.appendChild(equalsButton);
-        calculatorUI.appendChild(clearButton);
 
         const backspaceButton = document.createElement('button');
         backspaceButton.textContent = 'back';
@@ -46,9 +51,17 @@
         const negateButton = document.createElement('button');
         negateButton.textContent = '+/-';
         negateButton.id = 'neg';
-        calculatorUI.appendChild(backspaceButton);
-        calculatorUI.appendChild(dotButton);
-        calculatorUI.appendChild(negateButton);
+
+        let row1 = document.getElementById('row1');
+        let row2 = document.getElementById('row2');
+        let row3 = document.getElementById('row3');
+        let row4 = document.getElementById('row4');
+        let row5 = document.getElementById('row5');
+        row1.append(clearButton, equalsButton, backspaceButton);
+        row2.append(numberButtons[7], numberButtons[8], numberButtons[9], operationButtons[3]);
+        row3.append(numberButtons[4], numberButtons[5], numberButtons[6], operationButtons[2]);
+        row4.append(numberButtons[1], numberButtons[2], numberButtons[3], operationButtons[1]);
+        row5.append(negateButton, numberButtons[0], dotButton, operationButtons[0]);
     </script>
     <script src="javascript.js"></script>
 </body>
